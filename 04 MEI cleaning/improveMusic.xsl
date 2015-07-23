@@ -113,7 +113,7 @@
     </xd:doc>
     <xsl:template match="mei:mdiv" mode="lastRun">
         <xsl:copy>
-            <xsl:attribute name="xml:id" select="$movID"/>
+            <xsl:attribute name="xml:id" select="if($movID!='')then($movID)else(generate-id(.))"/>
             <xsl:apply-templates select="@* | node()" mode="#current"/>
         </xsl:copy>
     </xsl:template>
